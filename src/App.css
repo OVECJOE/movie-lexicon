@@ -411,6 +411,10 @@ select {
   .filter-form > * {
     width: 160px;
   }
+
+  .movie-card {
+    box-shadow: 2px 2px 3px 1px #008ad3;
+  }
 }
 
 @media screen and (max-width: 490px) {
@@ -455,7 +459,27 @@ select {
   }
 
   .result-box {
-    margin: .3rem 0;
-    padding: .3rem;
+    margin: .6rem;
+    padding: .5rem;
+  }
+
+  .movie-card {
+    flex-direction: column;
+    height: 500px;
+    border-radius: 10px;
+  }
+
+  .movie-card .poster {
+    width: 100%;
+    height: 50%;
+  }
+
+  .poster img {
+    border-radius: 10px;
+  }
+
+  .movie-info {
+    width: 100%;
+    padding: .5rem;
   }
 }
