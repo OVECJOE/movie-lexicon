@@ -453,4 +453,9 @@ select {
   .filter-form * {
     gap: .2rem;
   }
+
+  .result-box {
+    margin: .3rem 0;
+    padding: .3rem;
+  }
 }

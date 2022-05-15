@@ -49,7 +49,7 @@ export default function Main(props) {
         result && setResult({});
         const query_type = filterData.searchBy === 'title' ? 't' : 's';
         if (filterData.queryString && filterData.type) {
-            const api_request_url = (`http://www.omdbapi.com/?
+            const api_request_url = (`https://www.omdbapi.com/?
                 ${query_type}=${filterData.queryString.split(" ").join("+")}
                 &type=${filterData.type}${filterData.year.length === 4 ?
                     `&y=${filterData.year}` : ''}${(query_type === 't' &&
