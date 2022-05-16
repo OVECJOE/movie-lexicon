@@ -42,7 +42,6 @@ export default function Main(props) {
     }, [requestedUrls]);
 
     React.useEffect(() => {
-        console.log('Dont run infinitely')
         setNumberOfPages(prevNumberOfPages => Math.floor(result.totalResults/10));
         setPageNum(2);
     }, [result.totalResults]);
@@ -71,13 +70,16 @@ export default function Main(props) {
     }
 
     function showMore() {
+        if (numberOfPages > 1) {
+            props.toggleMore(true);
+        } else {
+            props.toggleMore(false);
+            return;
+        }
+
         setNumberOfPages(prevNumberOfPages => prevNumberOfPages - 1);
         setPageNum(prevPageNum => prevPageNum + 1);
-        console.log(numberOfPages);
-        numberOfPages >= 1 ? props.toggleMore(true) :
-        props.toggleMore(false);
 
-        console.log(pageNum, numberOfPages);
         const api_request_url = getRequestUrl(filterData, queryType, pageNum);
         if (api_request_url) {
             setRequestUrl(api_request_url, setRequestedUrls)
