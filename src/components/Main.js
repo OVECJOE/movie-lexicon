@@ -42,7 +42,7 @@ export default function Main(props) {
     }, [requestedUrls]);
 
     React.useEffect(() => {
-        setNumberOfPages(prevNumberOfPages => Math.floor(result.totalResults/10));
+        setNumberOfPages(Math.floor(result.totalResults/10));
         setPageNum(2);
     }, [result.totalResults]);
 
