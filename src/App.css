@@ -425,6 +425,10 @@ select {
   .movie-card {
     box-shadow: 2px 2px 3px 1px #008ad3;
   }
+
+  .movie-card .poster {
+    width: 40%;
+  }
 }
 
 @media screen and (max-width: 490px) {
@@ -475,8 +479,9 @@ select {
 
   .movie-card {
     flex-direction: column;
-    height: 500px;
+    height: 25rem;
     border-radius: 10px;
+    align-items: center;
   }
 
   .movie-card .poster {

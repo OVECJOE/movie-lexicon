@@ -2,6 +2,7 @@ import React from 'react';
 import AvatarCard from './AvatarCard';
 import QueryBox from './QueryBox';
 import ResultBox from './ResultBox';
+import getRequestUrl from '../utilities/getRequestUrl';
 
 export default function Main(props) {
     const defaultFilter = () => {
@@ -19,7 +20,7 @@ export default function Main(props) {
     const [requestedUrls, setRequestedUrls] = React.useState([]);
     const [queryType, setQueryType] = React.useState("");
     const [invalidQuery, setInvalidQuery] = React.useState(false);
-    
+
     const handleFilterChange = (event) => {
         const { name, value, type, checked } = event.target;
 
@@ -45,17 +46,11 @@ export default function Main(props) {
         if ((event.type === 'keydown' && event.code !== 'Enter')
             && event.type !== 'click')
             return;
-        
+
         result && setResult({});
         const query_type = filterData.searchBy === 'title' ? 't' : 's';
-        if (filterData.queryString && filterData.type) {
-            const api_request_url = (`https://www.omdbapi.com/?
-                ${query_type}=${filterData.queryString.split(" ").join("+")}
-                &type=${filterData.type}${filterData.year.length === 4 ?
-                    `&y=${filterData.year}` : ''}${(query_type === 't' &&
-                        filterData.plot) ? `&plot=${filterData.plot}` : ''}
-                    &apikey=4d0d264`).replace(/\s/g, '');
-
+        const api_request_url = getRequestUrl(filterData, query_type);
+        if (api_request_url) {
             setRequestedUrls((prevUrls) => {
                 return [
                     api_request_url,
