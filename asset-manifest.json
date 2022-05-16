@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/movie-lexicon/static/css/main.e9d1884b.css",
-    "main.js": "/movie-lexicon/static/js/main.dcc015bd.js",
+    "main.css": "/movie-lexicon/static/css/main.9f0c35eb.css",
+    "main.js": "/movie-lexicon/static/js/main.aa33519f.js",
     "static/media/background.jpg": "/movie-lexicon/static/media/background.a862089f0578199c7324.jpg",
     "static/media/avatar.jpg": "/movie-lexicon/static/media/avatar.343e6b790f5154ed8359.jpg",
     "static/media/logo.png": "/movie-lexicon/static/media/logo.16d754c25f146c536bf5.png",
     "static/media/moviecover.jpg": "/movie-lexicon/static/media/moviecover.5d87f1dfe9365428e451.jpg",
     "index.html": "/movie-lexicon/index.html",
-    "main.e9d1884b.css.map": "/movie-lexicon/static/css/main.e9d1884b.css.map",
-    "main.dcc015bd.js.map": "/movie-lexicon/static/js/main.dcc015bd.js.map"
+    "main.9f0c35eb.css.map": "/movie-lexicon/static/css/main.9f0c35eb.css.map",
+    "main.aa33519f.js.map": "/movie-lexicon/static/js/main.aa33519f.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9d1884b.css",
-    "static/js/main.dcc015bd.js"
+    "static/css/main.9f0c35eb.css",
+    "static/js/main.aa33519f.js"
   ]
 }
