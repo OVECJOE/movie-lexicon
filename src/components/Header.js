@@ -14,7 +14,7 @@ export default function Header(props) {
                     onClick={props.lookupView}
                 >
                     {props.lookupActive ?
-                        'Home' :
+                        'Go Home' :
                         'Lookup Movie(s) Info'}
                 </button>
             </nav>
