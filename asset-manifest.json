@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/movie-lexicon/static/css/main.8dc0f7aa.css",
-    "main.js": "/movie-lexicon/static/js/main.b6fec018.js",
+    "main.js": "/movie-lexicon/static/js/main.f6cec383.js",
     "static/media/background.jpg": "/movie-lexicon/static/media/background.a862089f0578199c7324.jpg",
     "static/media/avatar.jpg": "/movie-lexicon/static/media/avatar.343e6b790f5154ed8359.jpg",
     "static/media/logo.png": "/movie-lexicon/static/media/logo.16d754c25f146c536bf5.png",
     "static/media/moviecover.jpg": "/movie-lexicon/static/media/moviecover.5d87f1dfe9365428e451.jpg",
     "index.html": "/movie-lexicon/index.html",
     "main.8dc0f7aa.css.map": "/movie-lexicon/static/css/main.8dc0f7aa.css.map",
-    "main.b6fec018.js.map": "/movie-lexicon/static/js/main.b6fec018.js.map"
+    "main.f6cec383.js.map": "/movie-lexicon/static/js/main.f6cec383.js.map"
   },
   "entrypoints": [
     "static/css/main.8dc0f7aa.css",
-    "static/js/main.b6fec018.js"
+    "static/js/main.f6cec383.js"
   ]
 }
