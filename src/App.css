@@ -149,6 +149,8 @@ main {
   justify-content: space-between;
   margin: 2rem;
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 @keyframes slideInFromLeft {
@@ -170,15 +172,14 @@ main {
 }
 
 .result-box::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+  display: none;
 }
 
 .filter-box {
   background-color: #fffbed;
   padding: 1.2rem 1.5rem;
   border-radius: 15% 15% 4px 4px;
-  animation: 2s ease-out 0s 1 slideInFromLeft;
+  animation: .8s ease-out 0s 1 slideInFromLeft;
 }
 
 .filter-box .filter-header {
@@ -189,7 +190,7 @@ main {
   border-bottom: 3px solid #008ad3;
   padding: 0;
   color: #ffae30;
-  animation: 2.2s ease-out 0s 1 slideInFromLeft;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 .filter-header .title {
@@ -309,6 +310,7 @@ select {
   font-size: 16px;
   color: #222;
   border-radius: 15% 4px 4px 4px;
+  box-shadow: 2px 2px 3px 1px #008ad3;
 }
 
 .movie-card .poster {
@@ -355,6 +357,7 @@ select {
   flex-wrap: wrap-reverse;
   gap: .3rem;
   margin-bottom: 2rem;
+  width: 75%;
 }
 
 .movie-specifics span {
@@ -422,12 +425,16 @@ select {
     width: 160px;
   }
 
-  .movie-card {
-    box-shadow: 2px 2px 3px 1px #008ad3;
+  .movie-info h2 {
+    font-size: 1.5rem;
   }
 
   .movie-card .poster {
     width: 40%;
+  }
+
+  .movie-specifics {
+    width: 100%;
   }
 }
 
@@ -496,5 +503,9 @@ select {
   .movie-info {
     width: 100%;
     padding: .5rem;
+  }
+
+  .movie-card h2 {
+    font-size: 1.3rem;
   }
 }
