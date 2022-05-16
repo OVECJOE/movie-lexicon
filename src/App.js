@@ -7,7 +7,8 @@ function App() {
   const [utilityState, setUtilityState] = React.useState({
     lookupActive: false,
     isResultAvailable: false,
-    navigatable: false
+    navigatable: false,
+    more: true
   });
 
   const activateLookupView = () => setUtilityState(prevUtilityState => ({
@@ -17,12 +18,18 @@ function App() {
 
   const changeResultReady = () => setUtilityState(prevUtilityState => ({
     ...prevUtilityState,
-    isResultAvailable: !prevUtilityState.isResultAvailable
+    isResultAvailable: !prevUtilityState.isResultAvailable,
+    more: true
   }))
 
   const toggleNavigation = () => setUtilityState(prevUtilityState => ({
     ...prevUtilityState,
     navigatable: !prevUtilityState.navigatable,
+  }))
+
+  const toggleMore = (flag) => setUtilityState(prevUtilityState => ({
+    ...prevUtilityState,
+    more: flag
   }))
 
   return (
@@ -35,6 +42,7 @@ function App() {
         {...utilityState}
         changeResultReady={changeResultReady}
         toggleNavigation={toggleNavigation}
+        toggleMore={toggleMore}
       />
     </div>
   );

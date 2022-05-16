@@ -3,6 +3,7 @@ import AvatarCard from './AvatarCard';
 import QueryBox from './QueryBox';
 import ResultBox from './ResultBox';
 import getRequestUrl from '../utilities/getRequestUrl';
+import setRequestUrl from '../utilities/setRequestUrl';
 
 export default function Main(props) {
     const defaultFilter = () => {
@@ -20,6 +21,8 @@ export default function Main(props) {
     const [requestedUrls, setRequestedUrls] = React.useState([]);
     const [queryType, setQueryType] = React.useState("");
     const [invalidQuery, setInvalidQuery] = React.useState(false);
+    const [numberOfPages, setNumberOfPages] = React.useState(0);
+    const [pageNum, setPageNum] = React.useState(0);
 
     const handleFilterChange = (event) => {
         const { name, value, type, checked } = event.target;
@@ -39,6 +42,12 @@ export default function Main(props) {
     }, [requestedUrls]);
 
     React.useEffect(() => {
+        console.log('Dont run infinitely')
+        setNumberOfPages(prevNumberOfPages => Math.floor(result.totalResults/10));
+        setPageNum(2);
+    }, [result.totalResults]);
+
+    React.useEffect(() => {
         setInvalidQuery(false)
     }, [props.isResultAvailable])
 
@@ -51,20 +60,28 @@ export default function Main(props) {
         const query_type = filterData.searchBy === 'title' ? 't' : 's';
         const api_request_url = getRequestUrl(filterData, query_type);
         if (api_request_url) {
-            setRequestedUrls((prevUrls) => {
-                return [
-                    api_request_url,
-                    ...prevUrls
-                ]
-            });
+            setRequestUrl(api_request_url, setRequestedUrls);
             setQueryType(query_type);
 
-            setFilterData(defaultFilter());
+            // setFilterData(defaultFilter());
             props.changeResultReady();
         } else {
             setInvalidQuery(true);
         }
+    }
 
+    function showMore() {
+        setNumberOfPages(prevNumberOfPages => prevNumberOfPages - 1);
+        setPageNum(prevPageNum => prevPageNum + 1);
+        console.log(numberOfPages);
+        numberOfPages >= 1 ? props.toggleMore(true) :
+        props.toggleMore(false);
+
+        console.log(pageNum, numberOfPages);
+        const api_request_url = getRequestUrl(filterData, queryType, pageNum);
+        if (api_request_url) {
+            setRequestUrl(api_request_url, setRequestedUrls)
+        }
     }
 
     return (
@@ -76,8 +93,12 @@ export default function Main(props) {
                     <ResultBox
                         requestedUrls={requestedUrls}
                         result={result}
+                        setResult={setResult}
                         changeResultReady={props.changeResultReady}
                         queryType={queryType}
+                        numberOfPages={numberOfPages}
+                        showMore={() => showMore(pageNum)}
+                        more={props.more}
                     />
                 ) : (
                     <QueryBox

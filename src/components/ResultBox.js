@@ -25,9 +25,17 @@ export default function ResultBox(props) {
         <>
             <div className="result-box">
                 {movieElements}
-                <button onClick={props.changeResultReady}>
-                    Go Back to Search Page
-                </button>
+                <div className='btns'>
+                    {
+                        props.more &&
+                        <button onClick={props.showMore}>
+                            View More <i className="fa-solid fa-caret-down"></i>
+                        </button>
+                    }
+                    <button onClick={props.changeResultReady}>
+                        Go Back to Search Page
+                    </button>
+                </div>
             </div>
             <footer>
 

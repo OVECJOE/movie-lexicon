@@ -368,6 +368,12 @@ select {
   color: #131313;
 }
 
+.result-box .btns {
+  align-self: center;
+  display: flex;
+  gap: 2.5rem;
+}
+
 .result-box button,
 .query-form > button {
   align-self: center;
