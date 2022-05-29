@@ -35,6 +35,8 @@ export default function Main(props) {
         })
     };
 
+    const query_type = () => filterData.searchBy === 'title' ? 't' : 's';
+
     React.useEffect(() => {
         requestedUrls.length &&
             fetch(requestedUrls[0]).then(res => res.json())
@@ -56,8 +58,8 @@ export default function Main(props) {
             return;
 
         result && setResult({});
-        const query_type = filterData.searchBy === 'title' ? 't' : 's';
-        const api_request_url = getRequestUrl(filterData, query_type);
+        
+        const api_request_url = getRequestUrl(filterData, query_type());
         if (api_request_url) {
             setRequestUrl(api_request_url, setRequestedUrls);
             setQueryType(query_type);
@@ -100,6 +102,7 @@ export default function Main(props) {
                         queryType={queryType}
                         numberOfPages={numberOfPages}
                         showMore={() => showMore(pageNum)}
+                        query_type={query_type}
                         more={props.more}
                     />
                 ) : (

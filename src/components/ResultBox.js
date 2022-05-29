@@ -27,7 +27,7 @@ export default function ResultBox(props) {
                 {movieElements}
                 <div className='btns'>
                     {
-                        props.more &&
+                        (props.more && props.query_type() === 's') &&
                         <button onClick={props.showMore}>
                             View More <i className="fa-solid fa-caret-down"></i>
                         </button>
